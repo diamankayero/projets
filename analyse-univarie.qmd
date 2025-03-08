@@ -35,47 +35,149 @@ iris
 ```{python}
 iris.shape
 ```
-```{python}
 
+Il y a 5 variables (colonnes) et 150 individus (lignes). 
+
+```{python}
+iris.columns
 ```
-```{python}
 
-```
-```{python}
+Il y a 4 valeurs quantitatives mesurées : longueur et largeur des pétales et des sépales (ce sont les noms des colonnes), pour 150 individus (nombre de lignes) plus une variable qualitative correspondant à la variété.
 
-```
-```{python}
+### Pour compter le nombre de variétés
 
-```
 ```{python}
-
-```
-```{python}
-
-```
-```{python}
-
-```
-```{python}
-
-```
-```{python}
-
+variete = iris.Class
 ```
 
 ```{python}
-
-```
-```{python}
-
-```
-```{python}
-
+np.unique(variete)
 ```
 
-```{python}
+On obtient les valeurs des 3 variétés : setosa, versicolor et virginica. On constate qu'il y a 50 individus de chaque.
 
+Affichage des premières et dernières lignes
+```{python}
+iris.head(10)
 ```
 ```{python}
+iris.tail(10)
+```
 
+### 2 - Extraire le vecteur des largeurs de sépales (Sepal_Width)
+
+```{python}
+sw1 = iris.Sepal_Width
+sw1
+```
+
+ou bien
+```{python}
+sw2 = iris['Sepal_Width']
+sw2
+```
+
+### 3 - Extraire le vecteur des largeurs de pétales (Petal_Width) pour la variété setosa
+
+```{python}
+iris.Petal_Width[iris.Class=='setosa']
+```
+## Mesures de tendance et de dispersion
+
+### 1 utilisez la fonction describe pour obtenir le résumé quantitatif du jeu de données.
+
+```{python}
+iris.describe()
+```
+
+### 2 - Comparez les mesures pour le jeu de données globales et celles obtenues par variété.
+
+```{python}
+iris[iris['Class']=='setosa'].describe()
+```
+
+```{python}
+iris[iris['Class']=='versicolor'].describe()
+```
+```{python}
+iris[iris['Class']=='virginica'].describe()
+
+```
+
+## 3 - Visualisation des données
+
+### 1 - Tracer la fonction de répartition empirique de la largeur des pétales pour les trois variétés du jeu de données iris, sur trois graphes différents.
+
+```{python}
+sns.ecdfplot(data=iris[iris.Class=="setosa"], x='Petal_Width')
+```
+
+```{python}
+sns.ecdfplot(data=iris[iris.Class=="virginica"], x='Petal_Width')
+```
+
+```{python}
+sns.ecdfplot(data=iris[iris.Class=="versicolor"], x='Petal_Width')
+```
+
+### 2 - Tracer la fonction de répartition empirique de la largeur des pétales pour les trois variétés du jeu de données iris, sur le même graphe, avec l'option hue.
+
+```{python}
+sns.ecdfplot(data=iris, x='Petal_Width', hue="Class")
+```
+
+### 3 - Pour le jeu de données iris, tracez l'histogramme des longueurs de pétales pour tout le jeu de données.
+```{python}
+pl = iris.Petal_Length
+
+fig, ax=plt.subplots()
+ax.hist(pl,edgecolor='k')
+fig.suptitle('Histogramme des longueurs des pétales')
+```
+
+```{python}
+fig, ax=plt.subplots()
+sns.histplot(data=iris, x='Petal_Length')
+fig.suptitle('Histogramme des longueurs des pétales')
+```
+
+### 4 - Jouer avec le nombre de classes avec l'option bins.
+```{python}
+fig, ax=plt.subplots()
+ax.hist(pl,bins=20,edgecolor='k')
+fig.suptitle('Histogramme des longueurs des pétales')
+```
+
+```{python}
+fig, ax=plt.subplots()
+sns.histplot(data=iris, x='Petal_Length', bins=20)
+fig.suptitle('Histogramme des longueurs des pétales')
+```
+
+### 5 - Pour le jeu de données iris, tracez l'histogramme des longueurs de pétales pour tout le jeu de données en colorant les barres en fonction de l'espèce (option sns hue).
+
+```{python}
+fig, ax=plt.subplots()
+sns.histplot(data=iris, x='Petal_Length', hue='Class')
+fig.suptitle('Histogramme des longueurs des pétales')
+```
+
+### 6 - Pour le jeu de données iris, tracer les boîtes à moustache des longueurs de pétales pour chacune des trois variétés.
+```{python}
+pl1 = pl[iris.Class=='setosa']
+pl2 = pl[iris.Class=='versicolor']
+pl3 = pl[iris.Class=='virginica']
+```
+
+```{python}
+fig, ax=plt.subplots()
+ax.boxplot([pl1,pl2,pl3])
+fig.suptitle('Boxplot des longueurs des pétales')
+plt.xticks([1, 2, 3], ["setosa", "versicolor", "virginica"])
+```
+
+```{python}
+fig, ax=plt.subplots()
+sns.boxplot(data=iris, x= 'Class', y='Petal_Length')
+fig.suptitle('Boxplot des longueurs des pétales')
 ```
