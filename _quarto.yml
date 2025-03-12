@@ -1,0 +1,35 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  page-navigation: true
+  back-to-top-navigation: true
+  reader-mode: true
+  search: 
+    location: navbar
+    type: overlay
+  
+  title: "Projets"
+        
+format:
+  html:
+    theme:
+      light: cosmo
+    math: 
+      method: mathjax
+      config:
+        TeX:
+          equationNumbers:
+            autoNumber: "AMS"
+        SVG:
+          linebreaks: { automatic: true }  # Pour MathJax v3
+    css: 
+      - styles.css
+    includes:
+      - https://db.onlinewebfonts.com/c/dd361acac015930c5ced8f1135068f23?family=LyonText-Regular
+    
+editor: visual
+
+execute:
+  freeze: auto

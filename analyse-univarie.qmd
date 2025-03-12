@@ -1,17 +1,13 @@
 ---
-title: "Statistique descriptive bivariée"
+title: "Statistique descriptive univariée"
 format:
   html:
-    theme: marimo
     code-fold: false
-    include-before: |
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.11.14-dev6/dist/assets/index-BvR4Kvfh.css" crossorigin="anonymous">
-    code-options:
-      numbered: true
 jupyter: python3
 ---
 
 ### - Importations de bibliothèques
+
 ```{python}
 import numpy as np
 import pandas as pd
@@ -36,7 +32,7 @@ iris
 iris.shape
 ```
 
-Il y a 5 variables (colonnes) et 150 individus (lignes). 
+Il y a 5 variables (colonnes) et 150 individus (lignes).
 
 ```{python}
 iris.columns
@@ -57,9 +53,11 @@ np.unique(variete)
 On obtient les valeurs des 3 variétés : setosa, versicolor et virginica. On constate qu'il y a 50 individus de chaque.
 
 Affichage des premières et dernières lignes
+
 ```{python}
 iris.head(10)
 ```
+
 ```{python}
 iris.tail(10)
 ```
@@ -72,6 +70,7 @@ sw1
 ```
 
 ou bien
+
 ```{python}
 sw2 = iris['Sepal_Width']
 sw2
@@ -82,6 +81,7 @@ sw2
 ```{python}
 iris.Petal_Width[iris.Class=='setosa']
 ```
+
 ## Mesures de tendance et de dispersion
 
 ### 1 utilisez la fonction describe pour obtenir le résumé quantitatif du jeu de données.
@@ -99,6 +99,7 @@ iris[iris['Class']=='setosa'].describe()
 ```{python}
 iris[iris['Class']=='versicolor'].describe()
 ```
+
 ```{python}
 iris[iris['Class']=='virginica'].describe()
 
@@ -127,6 +128,7 @@ sns.ecdfplot(data=iris, x='Petal_Width', hue="Class")
 ```
 
 ### 3 - Pour le jeu de données iris, tracez l'histogramme des longueurs de pétales pour tout le jeu de données.
+
 ```{python}
 pl = iris.Petal_Length
 
@@ -142,6 +144,7 @@ fig.suptitle('Histogramme des longueurs des pétales')
 ```
 
 ### 4 - Jouer avec le nombre de classes avec l'option bins.
+
 ```{python}
 fig, ax=plt.subplots()
 ax.hist(pl,bins=20,edgecolor='k')
@@ -163,6 +166,7 @@ fig.suptitle('Histogramme des longueurs des pétales')
 ```
 
 ### 6 - Pour le jeu de données iris, tracer les boîtes à moustache des longueurs de pétales pour chacune des trois variétés.
+
 ```{python}
 pl1 = pl[iris.Class=='setosa']
 pl2 = pl[iris.Class=='versicolor']

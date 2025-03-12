@@ -2,19 +2,17 @@
 title: "Statistique descriptive bivariée"
 format:
   html:
-    theme: marimo
+    theme: 
+      light: cosmo
     code-fold: false
-    include-before: |
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.11.14-dev6/dist/assets/index-BvR4Kvfh.css" crossorigin="anonymous">
-    code-options:
-      numbered: true
+    css : "styles.css"
 jupyter: python3
 ---
 
-
-## Le but de ce projet est de s'entraîner à explorer les liaisons entre deux variables.
+ Le but de ce projet est de s'entraîner à explorer les liaisons entre deux variables.
 
 ### - Importations de bibliothèques
+
 ```{python}
 import numpy as np
 import pandas as pd
@@ -88,14 +86,13 @@ ax.set_ylabel('concentration de gag')
 
 Il semble y avoir une liaison décroissante forte, mais pas vraiment linéaire.
 
-### 8 - Calculer les coefficients de la droite de régression de la concentration de gag en fonction de l'âge. 
+### 8 - Calculer les coefficients de la droite de régression de la concentration de gag en fonction de l'âge.
 
-On rappelle que la droite de régression de $y$ par rapport à $x$ est la droite d'équation $y = \beta_0 +\beta_1 x$ avec 
+On rappelle que la droite de régression de $y$ par rapport à $x$ est la droite d'équation $y = \beta_0 +\beta_1 x$ avec
 
 $$
    \beta_0 = \bar{y}-\beta_1 \bar{x} \text{,} \quad \beta_1 = \frac{C(x,y)}{V(x)}.
 $$
-
 
 ```{python}
 C = np.cov(gag.Age, gag.GAG)
@@ -122,12 +119,9 @@ Il semble acceptable pour les valeurs loin de 0, mais très mauvais pour les tou
 
 $$
  R^2 = \frac{SC_reg}{SC_tot} = \frac{variation expliquée}{variation totale}.
- $$
-On rappelle que pour la régression de $y$ par rapport à $x$, on a 
-$$
+ $$ On rappelle que pour la régression de $y$ par rapport à $x$, on a $$
 SC_{tot}=\sum_{k=1}^n(y_k-\overline y)^2=nV(y),\quad SC_{reg}=\sum_{k=1}^n(\hat y_k-\overline y)^2,
-$$
-avec $\hat y_k = \beta_0 + \beta_1 x_k$. On rappelle également que le coefficient de détermination est égal au coefficient de corrélation au carré.
+$$ avec $\hat y_k = \beta_0 + \beta_1 x_k$. On rappelle également que le coefficient de détermination est égal au coefficient de corrélation au carré.
 
 ```{python}
 gag.corr()
@@ -136,7 +130,6 @@ gag.corr()
 ```{python}
 gag.corr()**2
 ```
-
 
 On trouve qu'un peu moins de 50% de la variabilité de la concentration en gag est expliquée par la régression.
 
