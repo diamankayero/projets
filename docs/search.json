@@ -1,19 +1,5 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Math",
-    "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
-  },
-  {
     "objectID": "analyse-univarie.html",
     "href": "analyse-univarie.html",
     "title": "Statistique descriptive univariée",
@@ -40,13 +26,6 @@
     "title": "Statistique descriptive bivariée",
     "section": "",
     "text": "Le but de ce projet est de s’entraîner à explorer les liaisons entre deux variables."
-  },
-  {
-    "objectID": "analyse-bivarie.html#le-but-de-ce-projet-est-de-sentraîner-à-explorer-les-liaisons-entre-deux-variables.",
-    "href": "analyse-bivarie.html#le-but-de-ce-projet-est-de-sentraîner-à-explorer-les-liaisons-entre-deux-variables.",
-    "title": "Statistique descriptive bivariée",
-    "section": "",
-    "text": "import numpy as np\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nfrom sklearn.linear_model import LinearRegression"
   },
   {
     "objectID": "analyse-bivarie.html#régression-linéaire-à-la-main",
