@@ -180,3 +180,12 @@ Ce sont ceux de plus petit diamètre/volume
 ### 16 - Que peut-on dire des arbres qui sont le plus en haut (resp. le plus en bas) sur premier plan factoriel ?
 
 Ce sont ceux de plus petite (resp. grande) hauteur.
+
+
+
+
+
+
+
+---
+Vous pouvez consulter le [pdf](https://diamankayero.github.io/projets/acp.pdf)

@@ -167,7 +167,7 @@ window.Quarto = {
 
 <section id="nous-allons-explorer-le-jeu-de-données-trees.csv-qui-donne-des-mesures-de-diamètre-girth-en-pouces-hauteur-height-en-pieds-et-volume-volume-en-pieds-cubes-de-cerisiers-noirs." class="level2">
 <h2 class="anchored" data-anchor-id="nous-allons-explorer-le-jeu-de-données-trees.csv-qui-donne-des-mesures-de-diamètre-girth-en-pouces-hauteur-height-en-pieds-et-volume-volume-en-pieds-cubes-de-cerisiers-noirs.">Nous allons explorer le jeu de données trees.csv qui donne des mesures de diamètre (girth, en pouces), hauteur (height, en pieds) et volume (volume, en pieds cubes) de cerisiers noirs.</h2>
-<div id="1c3fe41b" class="cell" data-execution_count="1">
+<div id="ff20d9c9" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -175,12 +175,12 @@ window.Quarto = {
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.decomposition <span class="im">import</span> PCA </span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="18a11b47" class="cell" data-execution_count="2">
+<div id="1e6b9f99" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a> trees<span class="op">=</span>pd.read_csv(<span class="st">'trees.csv'</span>)       </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="centrer-et-réduire-les-données" class="level3">
 <h3 class="anchored" data-anchor-id="centrer-et-réduire-les-données">1 - Centrer et réduire les données</h3>
-<div id="5e4c8ad5" class="cell" data-execution_count="3">
+<div id="b651552c" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>scaler <span class="op">=</span> StandardScaler()</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>scaler.fit(trees)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>Z <span class="op">=</span> scaler.transform(trees)</span>
@@ -222,7 +222,7 @@ window.Quarto = {
 </section>
 <section id="lancer-lacp" class="level3">
 <h3 class="anchored" data-anchor-id="lancer-lacp">2 - Lancer l’ACP</h3>
-<div id="3be287f4" class="cell" data-execution_count="4">
+<div id="bf0edefc" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>pca <span class="op">=</span> PCA()</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>pca.fit(Z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
@@ -647,7 +647,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </section>
 <section id="examiner-les-ratios-cumulés-de-variance.-combien-de-variabilité-est-expliquée-par-les-deux-premiers-axes" class="level3">
 <h3 class="anchored" data-anchor-id="examiner-les-ratios-cumulés-de-variance.-combien-de-variabilité-est-expliquée-par-les-deux-premiers-axes">3 - Examiner les ratios cumulés de variance. Combien de variabilité est expliquée par les deux premiers axes ?</h3>
-<div id="d4b4f6bb" class="cell" data-execution_count="5">
+<div id="c48bc0ab" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>np.cumsum(pca.explained_variance_ratio_)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="20">
 <pre><code>array([0.80343332, 0.9906391 , 1.        ])</code></pre>
@@ -656,7 +656,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </section>
 <section id="examiner-les-ratios-cumulés-de-variance.-combien-de-variabilité-est-expliquée-par-les-deux-premiers-axes-1" class="level3">
 <h3 class="anchored" data-anchor-id="examiner-les-ratios-cumulés-de-variance.-combien-de-variabilité-est-expliquée-par-les-deux-premiers-axes-1">3 - Examiner les ratios cumulés de variance. Combien de variabilité est expliquée par les deux premiers axes ?</h3>
-<div id="ebc57ed6" class="cell" data-execution_count="6">
+<div id="83463847" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>np.cumsum(pca.explained_variance_ratio_)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="21">
 <pre><code>array([0.80343332, 0.9906391 , 1.        ])</code></pre>
@@ -666,7 +666,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </section>
 <section id="afficher-les-valeurs-propres" class="level3">
 <h3 class="anchored" data-anchor-id="afficher-les-valeurs-propres">4 - Afficher les valeurs propres</h3>
-<div id="4549dfc1" class="cell" data-execution_count="7">
+<div id="652f2ed7" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>l <span class="op">=</span> <span class="dv">3</span><span class="op">*</span>pca.explained_variance_ratio_</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>l</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="22">
@@ -676,7 +676,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </section>
 <section id="extraire-les-facteurs" class="level3">
 <h3 class="anchored" data-anchor-id="extraire-les-facteurs">5 - Extraire les facteurs</h3>
-<div id="e21fe0c8" class="cell" data-execution_count="8">
+<div id="515d3dec" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>Gn<span class="op">=</span>pca.components_</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>G<span class="op">=</span>np.empty(shape<span class="op">=</span>Gn.shape)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, Gn.shape[<span class="dv">0</span>]):</span>
@@ -691,7 +691,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </section>
 <section id="tracer-le-cercle-des-corrélation-dans-le-premier-plan-factoriel-pour-les-variables" class="level3">
 <h3 class="anchored" data-anchor-id="tracer-le-cercle-des-corrélation-dans-le-premier-plan-factoriel-pour-les-variables">6 - Tracer le cercle des corrélation dans le premier plan factoriel pour les variables</h3>
-<div id="3d8f58f9" class="cell" data-execution_count="9">
+<div id="7e761160" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>fig,ax<span class="op">=</span>plt.subplots(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">5</span>))</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, Gn.shape[<span class="dv">1</span>]):</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    ax.arrow(<span class="dv">0</span>,<span class="dv">0</span>,  <span class="co"># la flèche part de l'origine</span></span>
@@ -720,7 +720,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <section id="quelles-variables-sont-bien-représentées-dans-ce-plan" class="level3">
 <h3 class="anchored" data-anchor-id="quelles-variables-sont-bien-représentées-dans-ce-plan">7 - Quelles variables sont bien représentées dans ce plan ?</h3>
 <p>Toutes : les pointes des flèches sont très proches du cercle unité. On le confirme en calulant les cos carrés.</p>
-<div id="7a813a88" class="cell" data-execution_count="10">
+<div id="6cb455a4" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>Gsq <span class="op">=</span> G<span class="op">**</span><span class="dv">2</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(Gsq[<span class="dv">0</span>,:]<span class="op">+</span>Gsq[<span class="dv">1</span>,:])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -734,7 +734,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </section>
 <section id="quelles-sont-les-variables-qui-contribuent-le-plus-au-premier-axe-factoriel" class="level3">
 <h3 class="anchored" data-anchor-id="quelles-sont-les-variables-qui-contribuent-le-plus-au-premier-axe-factoriel">9 - Quelles sont les variables qui contribuent le plus au premier axe factoriel ?</h3>
-<div id="1bc584d5" class="cell" data-execution_count="11">
+<div id="12967be7" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>Contrib<span class="op">=</span>(Gn<span class="op">**</span><span class="dv">2</span>)<span class="op">/</span>np.<span class="bu">sum</span>(Gn<span class="op">**</span><span class="dv">2</span>,axis<span class="op">=</span><span class="dv">0</span>)</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(Contrib[<span class="dv">0</span>,:])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -745,7 +745,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </section>
 <section id="quelles-sont-les-variables-qui-contribuent-le-plus-au-deuxième-axe-factoriel" class="level3">
 <h3 class="anchored" data-anchor-id="quelles-sont-les-variables-qui-contribuent-le-plus-au-deuxième-axe-factoriel">10 - Quelles sont les variables qui contribuent le plus au deuxième axe factoriel ?</h3>
-<div id="66fdde42" class="cell" data-execution_count="12">
+<div id="b457af72" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(Contrib[<span class="dv">1</span>,:])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[0.16801906 0.75343528 0.07854566]</code></pre>
@@ -755,7 +755,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </section>
 <section id="extraire-les-composantes-principales" class="level3">
 <h3 class="anchored" data-anchor-id="extraire-les-composantes-principales">11 - Extraire les composantes principales</h3>
-<div id="02c9181b" class="cell" data-execution_count="13">
+<div id="e4699abb" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>F<span class="op">=</span>pca.fit_transform(Z)</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>F</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="28">
@@ -795,7 +795,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </section>
 <section id="tracer-le-nuage-de-point-des-individus-projetés-dans-le-premier-plan-factoriel." class="level3">
 <h3 class="anchored" data-anchor-id="tracer-le-nuage-de-point-des-individus-projetés-dans-le-premier-plan-factoriel.">12 - Tracer le nuage de point des individus projetés dans le premier plan factoriel.</h3>
-<div id="8f1a9bb2" class="cell" data-execution_count="14">
+<div id="491bb964" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>fig,ax<span class="op">=</span>plt.subplots(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">5</span>))</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co"># individus</span></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>ax.scatter(F[:,<span class="dv">0</span>],F[:,<span class="dv">1</span>])</span>
@@ -818,7 +818,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </section>
 <section id="quels-sont-les-individus-qui-sont-bien-représentés-dans-ce-plan" class="level3">
 <h3 class="anchored" data-anchor-id="quels-sont-les-individus-qui-sont-bien-représentés-dans-ce-plan">13 - Quels sont les individus qui sont bien représentés dans ce plan ?</h3>
-<div id="372be297" class="cell" data-execution_count="15">
+<div id="e52f9ef7" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>cos2ind <span class="op">=</span> pd.DataFrame(</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span>[[<span class="st">'axe 1'</span>,<span class="st">'axe 2'</span>,<span class="st">'somme'</span>]],</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    index<span class="op">=</span>[np.arange(trees.shape[<span class="dv">0</span>])])</span>
@@ -1046,6 +1046,8 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <section id="que-peut-on-dire-des-arbres-qui-sont-le-plus-en-haut-resp.-le-plus-en-bas-sur-premier-plan-factoriel" class="level3">
 <h3 class="anchored" data-anchor-id="que-peut-on-dire-des-arbres-qui-sont-le-plus-en-haut-resp.-le-plus-en-bas-sur-premier-plan-factoriel">16 - Que peut-on dire des arbres qui sont le plus en haut (resp. le plus en bas) sur premier plan factoriel ?</h3>
 <p>Ce sont ceux de plus petite (resp. grande) hauteur.</p>
+<hr>
+<p>Vous pouvez consulter le <a href="https://diamankayero.github.io/projets/acp.pdf">pdf</a></p>
 
 
 
