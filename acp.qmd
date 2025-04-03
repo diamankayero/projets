@@ -1,5 +1,5 @@
 ---
-title: "Statistique descriptive bivariée"
+title: "Analyse en Composantes Principales"
 format:
   html:
     theme: 
